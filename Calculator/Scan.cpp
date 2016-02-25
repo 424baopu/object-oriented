@@ -10,12 +10,12 @@ Scan::Scan()
 void Scan::ToStringQueue(string input)
 {
 	
-	string number;//´æ´¢Êı×Ö
-	string sign;//´æ´¢·ûºÅ
+	string number;//å­˜å‚¨æ•°å­—
+	string sign;//å­˜å‚¨ç¬¦å·
 	
 	for (int i = 0; i < input.size();)
 	{
-		//Èç¹ûÊÇ·ûºÅÖ±½Ó´æÈë×Ö·û´®²¢´æÈë¶ÓÁĞ
+		//å¦‚æœæ˜¯ç¬¦å·ç›´æ¥å­˜å…¥å­—ç¬¦ä¸²å¹¶å­˜å…¥é˜Ÿåˆ—
 		if (input[i]<'0' || input[i]>'9')
 		{
 			sign = input[i];
@@ -23,26 +23,27 @@ void Scan::ToStringQueue(string input)
 			i++;
 		}
 		
-		//ÊÇÊı×Ö
+		//æ˜¯æ•°å­—
 		else
 		{
 			do
 			{
 
-				number = number + input[i];//½«Êı×Ö´æÈë×Ö·û´®
+				number = number + input[i];//å°†æ•°å­—å­˜å…¥å­—ç¬¦ä¸²
 				i++;
 			} while (input[i] == '.' || input[i] >= '0' && input[i] <= '9');
 
-			if (number.size() > 10)
+	        	if (number.size() > 10)
 			{
 				cout << "error" << endl;
+				m_ijudge = 1;//æ”¹å˜m_ijudgeå€¼
 				break;
 			}
 			else
 			{
 
-				m_que->push(number);//Êı×Ö´æÈë¶ÓÁĞ
-			    number = "";        //Çå¿Õ×Ö·û´®
+				m_que->push(number);//æ•°å­—å­˜å…¥é˜Ÿåˆ—
+			    number = "";        //æ¸…ç©ºå­—ç¬¦ä¸²
 			}
 			
 		}
@@ -51,7 +52,7 @@ void Scan::ToStringQueue(string input)
 
 }
 
-//·µ»Ø¶ÓÁĞÖ¸Õë
+//è¿”å›é˜Ÿåˆ—æŒ‡é’ˆ
 queue<string> *Scan::GetQueue()
 {
 	return m_que;
