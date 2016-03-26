@@ -1,3 +1,9 @@
+/*************************************************************************
+FileName:Printh.cpp
+Description:æ¥æ”¶é˜Ÿåˆ—å¹¶é€ä¸ªæ•°å‡º
+Function List:void queueTraverse(queue<string>*que);
+*************************************************************************/
+
 #include "Print.h"
 #include<iostream>
 using namespace std;
@@ -6,13 +12,14 @@ Print::Print()
 {
 }
 
+//å°†é˜Ÿåˆ—æˆå‘˜ä¸€ä¸ªä¸€ä¸ªè¾“å‡º
 void Print::queueTraverse(queue<string>*que)
 {
 	int a = que->size();
-	for (int i = 0; i < a;i++)
+	for (int i = 0; i < a; i++)
 	{
 		cout << que->front() << endl;
-		que->pop();//·ÃÎÊÒ»¸ö³ö¶ÓÒ»¸ö
+		que->pop();
 	}
 }
 
